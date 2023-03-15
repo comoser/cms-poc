@@ -25,5 +25,9 @@
 # Typescript
 *.tsbuildinfo
 
+# Jetbrains
+.idea/
+
 # Dotenv and similar local-only files
 *.local
+.env

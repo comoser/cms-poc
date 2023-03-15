@@ -11,7 +11,7 @@ export default defineConfig({
   title: 'cms-poc',
 
   projectId: 'zd6eo5jz',
-  dataset: 'production',
+  dataset: process.env.SANITY_STUDIO_API_DATASET as string,
 
   plugins: [deskTool(), visionTool(), ...(isDev ? devOnlyPlugins : [])],
 
