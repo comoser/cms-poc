@@ -8,6 +8,7 @@
     "dev": "sanity dev",
     "start": "sanity start",
     "build": "sanity build && cp _redirects dist/_redirects",
+    "build:deploy": "sanity build && cp _redirects dist/_redirects && sanity graphql deploy",
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy"
   },
