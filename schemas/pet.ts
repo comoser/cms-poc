@@ -18,7 +18,7 @@ export default {
   ],
   preview: {
     select: {
-      title: `title.${baseLanguage.id}`
+      name: `name.${baseLanguage.id}`
     }
   }
 }
