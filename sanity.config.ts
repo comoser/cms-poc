@@ -2,19 +2,7 @@ import {defineConfig} from 'sanity'
 import {visionTool} from '@sanity/vision'
 import {deskTool} from 'sanity/desk'
 import {schemaTypes} from './schemas'
-import {
-  documentI18n,
-  getFilteredDocumentTypeListItems,
-} from '@sanity/document-internationalization'
-
-
-const i18nConfig = {
-  languages: [
-    {id: 'en_US', title: 'English'},
-    {id: 'ar_SA', title: 'Arabic'},
-  ],
-  base: 'en_US',
-}
+import {languageFilter} from '@sanity/language-filter'
 
 export default defineConfig({
   name: 'default',
@@ -24,22 +12,18 @@ export default defineConfig({
   dataset: process.env.SANITY_STUDIO_API_DATASET as string,
 
   plugins: [
-    documentI18n(i18nConfig),
-    deskTool({
-      structure: (S, {schema}) => {
-        const docTypeListItems = getFilteredDocumentTypeListItems({
-          S,
-          schema,
-          config: i18nConfig,
-        });
-
-        return S.list()
-          .title('Content')
-          .items([
-            ...docTypeListItems,
-          ])
-      },
-    }), visionTool()],
+    languageFilter({
+      supportedLanguages: [
+        {id: 'en', title: 'English'},
+        {id: 'arb', title: 'Arabic'},
+      ],
+      defaultLanguages: ['en'],
+      // Only show language filter for document type `page` (schemaType.name)
+      // documentTypes: ['page'],
+      filterField: (enclosingType, field, selectedLanguageIds) =>
+        !enclosingType.name.startsWith('locale') || selectedLanguageIds.includes(field.name),
+    }),
+    deskTool(), visionTool()],
 
   schema: {
     types: schemaTypes,

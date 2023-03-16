@@ -1,3 +1,4 @@
+import localeString from './localeString'
 import pet from './pet'
 
-export const schemaTypes = [pet]
+export const schemaTypes = [localeString, pet]
