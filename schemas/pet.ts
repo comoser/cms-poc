@@ -1,3 +1,5 @@
+import {baseLanguage} from './localeString'
+
 export default {
   name: 'pet',
   type: 'document',
@@ -5,7 +7,7 @@ export default {
   fields: [
     {
       name: 'name',
-      type: 'string',
+      type: 'localeString',
       title: 'Name'
     },
     {
@@ -13,5 +15,10 @@ export default {
       type: 'number',
       title: 'Age'
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: `title.${baseLanguage.id}`
+    }
+  }
 }
