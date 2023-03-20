@@ -1,12 +1,9 @@
-const english = { id: 'en', title: 'English', isDefault: true }
-const arabic = { id: 'arb', title: 'Arabic', isDefault: false }
+const english = {id: 'en', title: 'English', isDefault: true}
+const arabic = {id: 'arb', title: 'Arabic', isDefault: false}
 
-const supportedLanguages = [
-  english,
-  arabic,
-]
+const supportedLanguages = [english, arabic]
 
-export const baseLanguage = supportedLanguages.find(l => l.isDefault) ?? english
+export const baseLanguage = supportedLanguages.find((l) => l.isDefault) ?? english
 
 export default {
   title: 'Localized string',
@@ -19,14 +16,15 @@ export default {
     {
       title: 'Translations',
       name: 'translations',
-      options: { collapsible: true }
-    }
+      options: {collapsible: true},
+    },
   ],
   // Dynamically define one field per language
-  fields: supportedLanguages.map(lang => ({
+  fields: supportedLanguages.map((lang) => ({
     title: lang.title,
     name: lang.id,
-    type: 'string',
-    fieldset: lang.isDefault ? null : 'translations'
-  }))
+    type: 'array',
+    of: [{type: 'richTextEditor'}],
+    fieldset: lang.isDefault ? null : 'translations',
+  })),
 }

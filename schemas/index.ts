@@ -1,5 +1,6 @@
 import localeString from './localeString'
-import pet from './pet'
 import image from './image'
+import page from './page'
+import richTextEditor from './richTextEditor'
 
-export const schemaTypes = [localeString, pet, image]
+export const schemaTypes = [localeString, image, page, richTextEditor]
