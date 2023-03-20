@@ -1,5 +1,5 @@
 const english = {id: 'en', title: 'English', isDefault: true}
-const arabic = {id: 'arb', title: 'Arabic', isDefault: false}
+const arabic = {id: 'ar', title: 'Arabic', isDefault: false}
 
 const supportedLanguages = [english, arabic]
 

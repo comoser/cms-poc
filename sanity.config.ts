@@ -15,7 +15,7 @@ export default defineConfig({
     languageFilter({
       supportedLanguages: [
         {id: 'en', title: 'English'},
-        {id: 'arb', title: 'Arabic'},
+        {id: 'ar', title: 'Arabic'},
       ],
       defaultLanguages: ['en'],
       // Only show language filter for document type `page` (schemaType.name)
