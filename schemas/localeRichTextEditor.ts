@@ -4,8 +4,8 @@ const arabic = {id: 'arb', title: 'Arabic', isDefault: false}
 const supportedLanguages = [english, arabic]
 
 export default {
-  title: 'Localized string',
-  name: 'localeString',
+  title: 'Localized rich text editor',
+  name: 'localeRichTextEditor',
   type: 'object',
   // Fieldsets can be used to group object fields.
   // Here we omit a fieldset for the "default language",
@@ -21,7 +21,8 @@ export default {
   fields: supportedLanguages.map((lang) => ({
     title: lang.title,
     name: lang.id,
-    type: 'string',
+    type: 'array',
+    of: [{type: 'richTextEditor'}],
     fieldset: lang.isDefault ? null : 'translations',
   })),
 }

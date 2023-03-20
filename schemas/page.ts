@@ -1,6 +1,3 @@
-import {defineArrayMember} from 'sanity'
-import richTextEditor from './richTextEditor'
-
 export default {
   name: 'page',
   title: 'Page', // name of the model
@@ -9,13 +6,12 @@ export default {
     {
       name: 'pageTitle',
       title: 'Page Title',
-      type: 'string',
+      type: 'localeRichTextEditor',
     },
     {
       title: 'Header Title',
       name: 'headerTitle',
-      type: 'array',
-      of: [{type: 'richTextEditor'}],
+      type: 'localeRichTextEditor',
     },
     {
       name: 'headerImage',
@@ -36,12 +32,12 @@ export default {
           name: 'headerAction',
           fields: [
             {
-              type: 'localeString',
+              type: 'localeRichTextEditor',
               title: 'Action Title',
               name: 'actionTitle',
             },
             {
-              type: 'localeString',
+              type: 'localeRichTextEditor',
               title: 'Action Description',
               name: 'actionDescription',
             },
@@ -60,17 +56,17 @@ export default {
           name: 'highlightItem',
           fields: [
             {
-              type: 'string',
+              type: 'localeRichTextEditor',
               title: 'Highlight Title',
-              name: 'highlghtTitle',
+              name: 'highlightTitle',
             },
             {
-              type: 'string',
+              type: 'localeRichTextEditor',
               title: 'Highlight Description',
-              name: 'highlghtDescription',
+              name: 'highlightDescription',
             },
             {
-              name: 'highlghtImage',
+              name: 'highlightImage',
               title: 'Highlight Image',
               type: 'image',
               options: {
@@ -87,7 +83,7 @@ export default {
       name: 'cta',
       fields: [
         {
-          type: 'string',
+          type: 'localeRichTextEditor',
           title: 'CTA Description',
           name: 'ctaDescription',
         },
