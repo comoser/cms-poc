@@ -4,6 +4,11 @@ export default {
   type: 'document',
   fields: [
     {
+      name: 'studioPageId',
+      title: 'Studio Page Id',
+      type: 'string'
+    },
+    {
       name: 'pageTitle',
       title: 'Page Title',
       type: 'localeRichTextEditor',
